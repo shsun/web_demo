@@ -2,6 +2,8 @@ package com.youdo.mybatis.dialect;
 
 /**
  * 
+ * @author shsun
+ *
  */
 public class OracleDialect extends Dialect {
 
@@ -13,8 +15,7 @@ public class OracleDialect extends Dialect {
         return true;
     }
 
-    public String getLimitString(String sql, int offset, String offsetPlaceholder, int limit,
-                                 String limitPlaceholder) {
+    public String getLimitString(String sql, int offset, String offsetPlaceholder, int limit, String limitPlaceholder) {
         sql = sql.trim();
         boolean isForUpdate = false;
         if (sql.toLowerCase().endsWith(" for update")) {
@@ -30,10 +31,8 @@ public class OracleDialect extends Dialect {
         }
         pagingSelect.append(sql);
         if (offset > 0) {
-            // int end = offset+limit;
             String endString = offsetPlaceholder + "+" + limitPlaceholder;
-            pagingSelect.append(" ) row_ ) where rownum_ <= " + endString + " and rownum_ > "
-                    + offsetPlaceholder);
+            pagingSelect.append(" ) row_ ) where rownum_ <= " + endString + " and rownum_ > " + offsetPlaceholder);
         } else {
             pagingSelect.append(" ) where rownum <= " + limitPlaceholder);
         }

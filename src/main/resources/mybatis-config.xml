@@ -7,11 +7,11 @@
 	<properties>
 		<property name="dialect" value="oracle" />
 	</properties>
-	
-	 <plugins>
-	 	<plugin interceptor="com.shsun.addata.aop.OffsetLimitInterceptor">  
-            <property name="dialectClass" value="com.youdo.mybatis.dialect.OracleDialect"/>  
-        </plugin>  
-    </plugins>
-    
+
+	<plugins>
+		<plugin interceptor="com.shsun.addata.aop.OffsetLimitInterceptor">
+			<property name="dialectClass" value="com.youdo.mybatis.dialect.OracleDialect" />
+		</plugin>
+	</plugins>
+
 </configuration>

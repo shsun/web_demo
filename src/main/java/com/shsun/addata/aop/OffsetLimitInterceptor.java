@@ -38,11 +38,10 @@ public class OffsetLimitInterceptor extends com.youdo.mybatis.plugin.OffsetLimit
     @Override
     protected void onAfterProcessIntercept(Object parameter, String sql) {
         try {
-            // logger.debug(sql);
             logger.log(YouDoLevel.SQL, sql);
             ((ISqlParameterSource) parameter).setSQL(sql);
         } catch (Exception e) {
-            // TODO: handle exception
+            ;
         }
     }
 
