@@ -77,7 +77,7 @@ public class ApplicationSharedObject {
 		info.setMailServerPort("25");
 		info.setValidate(true);
 		info.setUserName("systeminformation");
-		info.setPassword("111aaaAAA");
+		info.setPassword("123456");
 		info.setFromAddress("systeminformation@shsun.com");
 		info.setToAddresses(new String[] { "addata@shsun.com", "sunshanghai@shsun.com" });
 		info.setSubject("AdData-SQL-Exception-Message");

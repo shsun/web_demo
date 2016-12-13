@@ -1,0 +1,7 @@
+.classpath
+.jsdtscope
+.project
+.settings/
+logs/
+target/
+

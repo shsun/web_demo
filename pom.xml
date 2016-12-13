@@ -22,13 +22,13 @@
 		<release.server.host>10.106.23.169</release.server.host>
 		<release.server.port>22022</release.server.port>
 		<release.server.username>root</release.server.username>
-		<release.server.password>DTACkfByk9qs</release.server.password>
+		<release.server.password>123456</release.server.password>
 		<release.server.path>/opt/addata/tomcat/webapps/</release.server.path>
 
 		<debug.server.host>10.10.103.25</debug.server.host>
 		<debug.server.port>22022</debug.server.port>
 		<debug.server.username>root</debug.server.username>
-		<debug.server.password>adtest25</debug.server.password>
+		<debug.server.password>myname</debug.server.password>
 		<debug.server.path>/usr/apache-tomcat-7.0.34/webapps/</debug.server.path>
 	</properties>
 

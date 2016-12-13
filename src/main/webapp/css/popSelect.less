@@ -1,0 +1,111 @@
+.dbox{
+	//background: green;
+}
+
+.popSelect{
+	position: static;
+	margin-left:auto;
+	margin-right:auto;
+	.dialog_title{
+		color:black;
+		background: #cee1ee;
+		padding:5px;
+	}
+	
+	li{
+		display: inline-block;
+		width:10%;
+		height:20px;
+		line-height:20px;
+		text-align: center;
+		vertical-align: top;
+		&.active{
+			background: #06C;
+			color:white;
+		}
+		&.half{
+			background: #6CF;
+			color:white;
+		}
+		&.all{
+			display: block;
+			width:100%;
+			background: #ccc;
+			color:white;
+		}
+	}
+
+	.topList {
+		border:1px solid black;
+		li{
+			width:60px;
+			border-left: 5px solid transparent;
+			&.cur{
+				border-left: 5px solid gray;
+			}
+			&.all{
+				width:100%;
+			}
+		}
+	}
+	.subList{
+		display: none;
+		.item{
+			width:23%;
+			padding-left:2%;
+			text-align: left;
+		}
+		
+	}
+}
+//
+.dbox td .flowbar .num
+{
+	margin:0;
+	width:auto;
+}
+.button{
+	border: 1px solid gray;
+	padding: 4px ;
+}
+@blue : #99BBE8;
+.num{
+    color:red;
+}
+.drop-checkbox{
+	border: 1px solid @blue;
+	position: absolute;
+	width: 350px;
+	background: lighten(@blue, 20%);
+	padding: 10px;
+	z-index:100;
+	display: none;
+	.ok{
+		position:absolute;
+		bottom:10px;
+		right:10px;
+		background: @blue;
+		padding:5px 15px;
+		color:black;
+		text-decoration: none;
+
+	}
+	.ok:hover{
+		background: darken(@blue, 10%);
+		color:white;
+	}
+	label{
+		display: inline-block;
+		padding: 5px 0;
+		width: 160px;
+		*display: inline;
+		*zoom: 1;
+		input{
+			margin-right:3px;
+		}
+	}
+	label:hover{
+		background: lighten(@blue, 10%);
+		color:white;
+	}
+}
