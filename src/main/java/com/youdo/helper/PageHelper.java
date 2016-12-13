@@ -37,8 +37,7 @@ public class PageHelper {
     }
 
     public static int computeLastPageNumber(int totalElements, int pageSize) {
-        int result = totalElements % pageSize != 0 ? totalElements / pageSize + 1 : totalElements
-                / pageSize;
+        int result = totalElements % pageSize != 0 ? totalElements / pageSize + 1 : totalElements / pageSize;
         if (result <= 1)
             result = 1;
         return result;

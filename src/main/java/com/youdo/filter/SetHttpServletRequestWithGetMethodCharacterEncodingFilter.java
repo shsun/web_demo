@@ -19,103 +19,96 @@ import javax.servlet.http.HttpServletRequestWrapper;
  */
 public class SetHttpServletRequestWithGetMethodCharacterEncodingFilter implements Filter {
 
-	@SuppressWarnings("unused")
-	private FilterConfig filterConfig = null;
+    @SuppressWarnings("unused")
+    private FilterConfig filterConfig = null;
 
-	private String charset = "UTF-8";
+    private String charset = "UTF-8";
 
-	public void init( FilterConfig filterConfig ) throws ServletException {
-		// TODO Auto-generated method stub
-		this.filterConfig = filterConfig;
-		String charset = filterConfig.getServletContext().getInitParameter("charset");
-		if (charset != null && charset.trim().length() != 0) {
-			this.charset = charset;
-		}
-	}
+    public void init(FilterConfig filterConfig) throws ServletException {
+        this.filterConfig = filterConfig;
+        String charset = filterConfig.getServletContext().getInitParameter("charset");
+        if (charset != null && charset.trim().length() != 0) {
+            this.charset = charset;
+        }
+    }
 
-	public void doFilter( ServletRequest request, ServletResponse response, FilterChain chain ) throws IOException, ServletException {
-		// TODO Auto-generated method stub
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        //
+        request.setCharacterEncoding(this.charset);
+        response.setCharacterEncoding(this.charset);
 
-		//
-		request.setCharacterEncoding(this.charset);
-		response.setCharacterEncoding(this.charset);
+        HttpServletRequest tmpRequest = (HttpServletRequest) request;
+        if (tmpRequest.getMethod().equalsIgnoreCase("GET")) {
+            tmpRequest = new Request(tmpRequest, this.charset);
+        }
 
-		HttpServletRequest tmpRequest = (HttpServletRequest) request;
-		if (tmpRequest.getMethod().equalsIgnoreCase("GET")) {
-			tmpRequest = new Request(tmpRequest, this.charset);
-		}
+        chain.doFilter(tmpRequest, response);
+    }
 
-		chain.doFilter(tmpRequest, response);
-	}
+    public void destroy() {
+        charset = null;
+        filterConfig = null;
+    }
 
-	public void destroy() {
-		// TODO Auto-generated method stub
-		charset = null;
-		filterConfig = null;
-	}
+    /**
+     * 
+     * @author shsun
+     * 
+     */
+    class Request extends HttpServletRequestWrapper {
 
-	/**
-	 * 
-	 * @author shsun
-	 * 
-	 */
-	class Request extends HttpServletRequestWrapper {
+        private String charset = "UTF-8";
 
-		private String charset = "UTF-8";
+        /**
+         * 
+         * @param request the object which be wrapped
+         */
+        public Request(HttpServletRequest request) {
+            super(request);
+        }
 
-		/**
-		 * 
-		 * @param request
-		 *            the object which be wrapped
-		 */
-		public Request(HttpServletRequest request) {
-			super(request);
-		}
+        /**
+         * @param request the object which be wrapped
+         * @param charset expected charset
+         */
+        public Request(HttpServletRequest request, String charset) {
+            super(request);
+            this.charset = charset;
+        }
 
-		/**
-		 * @param request
-		 *            the object which be wrapped
-		 * @param charset
-		 *            expected charset
-		 */
-		public Request(HttpServletRequest request, String charset) {
-			super(request);
-			this.charset = charset;
-		}
+        /**
+         * 
+         */
+        @Override
+        public String getParameter(String name) {
+            String value = super.getParameter(name);
+            value = value == null ? null : convert(value);
+            return value;
+        }
 
-		/**
-		 * 
-		 */
-		@Override
-		public String getParameter( String name ) {
-			String value = super.getParameter(name);
-			value = value == null ? null : convert(value);
-			return value;
-		}
+        /**
+         * 
+         */
+        @Override
+        public String[] getParameterValues(String name) {
+            String values[] = ((HttpServletRequest) super.getRequest()).getParameterValues(name);
+            if (values != null) {
+                for (int i = 0; i < values.length; i++) {
+                    values[i] = convert(values[i]);
+                }
+            }
+            return values;
+        }
 
-		/**
-		 * 
-		 */
-		@Override
-		public String[] getParameterValues( String name ) {
-			String values[] = ((HttpServletRequest) super.getRequest()).getParameterValues(name);
-			if (values != null) {
-				for (int i = 0; i < values.length; i++) {
-					values[i] = convert(values[i]);
-				}
-			}
-			return values;
-		}
-
-		private String convert( String target ) {
-			String s = null;
-			try {
-				//s = java.net.URLDecoder.decode(target, this.charset);
-				s = new String(target.trim().getBytes("ISO-8859-1"), this.charset);
-			} catch (UnsupportedEncodingException e) {
-				s = target;
-			}
-			return s;
-		}
-	}
+        private String convert(String target) {
+            String s = null;
+            try {
+                // s = java.net.URLDecoder.decode(target, this.charset);
+                s = new String(target.trim().getBytes("ISO-8859-1"), this.charset);
+            } catch (UnsupportedEncodingException e) {
+                s = target;
+            }
+            return s;
+        }
+    }
 }

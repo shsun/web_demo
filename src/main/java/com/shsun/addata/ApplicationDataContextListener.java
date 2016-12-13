@@ -19,11 +19,6 @@ public class ApplicationDataContextListener extends ContextLoaderListener {
     static final String AD_STATS_SERVICE_BEAN_KEY = "adStatsService";
 
     @Override
-    public void contextDestroyed(ServletContextEvent event) {
-        super.contextDestroyed(event);
-    }
-
-    @Override
     public void contextInitialized(ServletContextEvent event) {
         super.contextInitialized(event);
         logger.info("contextInitialized");
@@ -37,5 +32,10 @@ public class ApplicationDataContextListener extends ContextLoaderListener {
         service.reloadAdType();
         service.reloadSegment();
         // service.reloadVideoGroup();
+    }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent event) {
+        super.contextDestroyed(event);
     }
 }

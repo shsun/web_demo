@@ -9,22 +9,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.filter.CharacterEncodingFilter;
 
-
-
+/**
+ * 
+ * @author shsun
+ *
+ */
 public class PathCharacterEncodingFilter extends CharacterEncodingFilter {
+    
+    @Override
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
-	protected void doFilterInternal(
-			HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-			throws ServletException, IOException {
-		
-		String path = request.getContextPath();
-		request.setAttribute("path", path);
-		/*
-		response.setHeader("Cache-Control", "no-cache");
-		response.addHeader("Cache-Control", "no-store");
-		response.setHeader("Pragma", "no-cache");
-		response.setDateHeader("Expires", 0L);
-		*/
-		super.doFilterInternal(request, response, filterChain);
-	}
+        String path = request.getContextPath();
+        request.setAttribute("path", path);
+
+        // response.setHeader("Cache-Control", "no-cache");
+        // response.addHeader("Cache-Control", "no-store");
+        // response.setHeader("Pragma", "no-cache");
+        // response.setDateHeader("Expires", 0L);
+
+        super.doFilterInternal(request, response, filterChain);
+    }
 }

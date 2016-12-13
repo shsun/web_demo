@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 
 /**
  * 初始化Servlet设置版本号
- *
  */
 public class InitServlet extends HttpServlet {
 
