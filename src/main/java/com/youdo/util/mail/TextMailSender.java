@@ -11,15 +11,15 @@ import javax.mail.Transport;
  */
 public class TextMailSender extends AbstractMailSender {
 
-	@Override
-	protected void doSend(MailSenderInfo info, Message message) {
-		String mailContent = info.getContent();
-		try {
-			message.setText(mailContent);
-			Transport.send(message);
-		} catch (MessagingException e) {
-			e.printStackTrace();
-		}
-	}
+    @Override
+    protected void doSend(MailSenderInfo info, Message message) {
+        String mailContent = info.getContent();
+        try {
+            message.setText(mailContent);
+            Transport.send(message);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

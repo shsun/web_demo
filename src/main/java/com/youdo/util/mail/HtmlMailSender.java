@@ -15,17 +15,17 @@ import javax.mail.internet.MimeMultipart;
  */
 public class HtmlMailSender extends AbstractMailSender {
 
-	@Override
-	protected void doSend(MailSenderInfo info, Message message) {
-		Multipart mPart = new MimeMultipart();
-		BodyPart bPart = new MimeBodyPart();
-		try {
-			bPart.setContent(info.getContent(), "text/html; charset=utf-8");
-			mPart.addBodyPart(bPart);
-			message.setContent(mPart);
-			Transport.send(message);
-		} catch (MessagingException e) {
-			e.printStackTrace();
-		}
-	}
+    @Override
+    protected void doSend(MailSenderInfo info, Message message) {
+        Multipart mPart = new MimeMultipart();
+        BodyPart bPart = new MimeBodyPart();
+        try {
+            bPart.setContent(info.getContent(), "text/html; charset=utf-8");
+            mPart.addBodyPart(bPart);
+            message.setContent(mPart);
+            Transport.send(message);
+        } catch (MessagingException e) {
+            e.printStackTrace();
+        }
+    }
 }

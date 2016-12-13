@@ -53,7 +53,6 @@ public class RegionVOContainer implements IBaseKVObjectContainer<DIM_COM_CITY>,I
 	}
 	
 	public int indexOf(DIM_COM_CITY value) {
-		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -114,7 +113,6 @@ public class RegionVOContainer implements IBaseKVObjectContainer<DIM_COM_CITY>,I
 	}
 
 	public JSONArray toJSONArray() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }
