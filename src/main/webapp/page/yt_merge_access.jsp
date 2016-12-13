@@ -49,7 +49,7 @@
 	<body>
 		<div id="layout_div" class="easyui-layout" style="width:1100px; height:720px;">
 		     <div data-options="region:'north'" style="height:220px">
-		          <div id="formPanel" class="easyui-panel" data-options="fit:true" title="优酷土豆容量统计" style="padding:10px;background-color: #fafafa">  
+		          <div id="formPanel" class="easyui-panel" data-options="fit:true" title="AB容量统计" style="padding:10px;background-color: #fafafa">  
         	 			<form id="access_form" method="post"><div>
 
         	 			<div style="margin-bottom: 6px;">
@@ -101,9 +101,9 @@
        						
        						<span class="lspan10">选择网站:</span> 
        						<select id="sitesel" class="easyui-combobox" name="site" style="width:100px;" data-options="editable:false,onSelect:selSite">  
-        					   <option value="-999">优酷+土豆</option>
-        					   <option value="1">优酷</option>  
-        					   <option value="2">土豆</option>
+        					   <option value="-999">A+B</option>
+        					   <option value="1">A</option>  
+        					   <option value="2">B</option>
        						 </select>
        						<span id="durationSpan">
 	       						<span class="lspan10">视频时长:</span> 
@@ -562,7 +562,7 @@
 		if(location.href.indexOf('isMobile') == -1){
 			//没有isMobile参数，隐藏移动分类
 			
-			$('.panel-title').text('优酷土豆PC容量统计')
+			$('.panel-title').text('ABPC容量统计')
 			
 			//隐藏时长
 			$('#segment,#durationSpan').remove();
@@ -576,7 +576,7 @@
 			$('#mobiPlateform,#group_platform,#group_client,#group_videolength_type,#group_type_label').hide();
 		}else{
 
-			$('.panel-title').text('优酷土豆移动容量统计')
+			$('.panel-title').text('AB移动容量统计')
 			
 			//含有小时文字的选项卡和底部计数
 			$('.timedetailWrap').remove();

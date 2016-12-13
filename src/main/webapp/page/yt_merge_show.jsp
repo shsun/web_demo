@@ -32,7 +32,7 @@
 	<body>
 		<div id="layout_div" class="easyui-layout" style="width:1100px; height:720px;">
 		     <div data-options="region:'north'" style="height:230px">
-		          <div id="formPanel" class="easyui-panel" data-options="fit:true" title="优酷土豆效果统计" style="padding:10px;background-color: #fafafa">  
+		          <div id="formPanel" class="easyui-panel" data-options="fit:true" title="AB效果统计" style="padding:10px;background-color: #fafafa">  
         	 			<form id="ad_tracking_form" method="post"><div>
         	 			  <div style="margin-bottom: 6px;">
         	 				<c:choose>
@@ -97,9 +97,9 @@
        						 </div> 
        						<span class="lspan10">选择网站:</span> 
        						  <select id="sitesel" class="easyui-combobox" name="site" style="width:100px;" data-options="editable:false,onSelect:selSite">  
-        					    <option value="-999">优酷+土豆</option>
-        					    <option value="1">优酷</option>  
-        					    <option value="2">土豆</option>
+        					    <option value="-999">A+B</option>
+        					    <option value="1">A</option>  
+        					    <option value="2">B</option>
        						 </select>
        						 <span class="lspan10">订单ID:</span>
        						 <select class="easyui-combobox" name="orderId" style="width:80px;" data-options=""></select>
@@ -369,7 +369,7 @@
         	if(location.href.indexOf('isMobile') == -1){
         		//PC版本
 				//没有isMobile参数，隐藏
-				$('.panel-title').text('优酷土豆PC效果统计')
+				$('.panel-title').text('ABPC效果统计')
 				
 				// 平台，时长选择
 				$('#segment, #durationSpan, mobiPlateform').remove();
@@ -385,7 +385,7 @@
 				
 			}else{
 				//移动版本
-				$('.panel-title').text('优酷土豆移动效果统计')
+				$('.panel-title').text('AB移动效果统计')
 				//含有小时文字的选项卡
 				$('.timedetailWrap').remove();
 				 

@@ -142,7 +142,7 @@ com.shsun.ad.crm.crm_third.Crm_SearchGridPanel=Ext.extend(Ext.Panel, {
 							displayField:'text',
 							store : new Ext.data.SimpleStore({
 								fields: ['value', 'text'],
-								data: [['1', '优酷'],['2', '土豆'],['-999', '优酷+土豆']]		    					
+								data: [['1', 'A'],['2', 'B'],['-999', 'A+B']]		    					
 							})
 						})
 					]

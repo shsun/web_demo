@@ -107,9 +107,9 @@
        						
        						<span class="lspan10">选择网站:</span> 
        						<select id="sitesel" class="easyui-combobox" name="site" style="width:100px;" data-options="editable:false,onSelect:selSite">  
-        					   <option value="-999">优酷+土豆</option>
-        					   <option value="1">优酷</option>  
-        					   <option value="2">土豆</option>
+        					   <option value="-999">A+B</option>
+        					   <option value="1">A</option>  
+        					   <option value="2">B</option>
        						 </select>
        						 
        						<span class="lspan10">视频时长:</span> 
