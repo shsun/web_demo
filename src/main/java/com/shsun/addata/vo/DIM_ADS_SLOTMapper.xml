@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shsun.addata.vo.DIM_ADS_SLOTMapper">
+	<resultMap id="BaseResultMap" type="com.shsun.addata.vo.DIM_ADS_SLOT">
+		<result column="SLOT_ID" property="SLOT_ID" jdbcType="DECIMAL" />
+		<result column="SLOT_NAME" property="SLOT_NAME" jdbcType="VARCHAR" />
+		<result column="SLOT_GROUP1_ID" property="SLOT_GROUP1_ID"
+			jdbcType="DECIMAL" />
+		<result column="SLOT_GROUP1_NAME" property="SLOT_GROUP1_NAME"
+			jdbcType="VARCHAR" />
+		<result column="SLOT_GROUP2_ID" property="SLOT_GROUP2_ID"
+			jdbcType="DECIMAL" />
+		<result column="SLOT_GROUP2_NAME" property="SLOT_GROUP2_NAME"
+			jdbcType="VARCHAR" />
+		<result column="SITE_ID" property="SITE_ID" jdbcType="DECIMAL" />
+		<result column="START_DATE" property="START_DATE" jdbcType="TIMESTAMP" />
+		<result column="END_DATE" property="END_DATE" jdbcType="TIMESTAMP" />
+		<result column="IS_INUSE" property="IS_INUSE" jdbcType="DECIMAL" />
+		<result column="DESCRIPTION" property="DESCRIPTION" jdbcType="VARCHAR" />
+		<result column="TYPE_ID" property="TYPE_ID" jdbcType="DECIMAL" />
+		<result column="TYPE_NAME" property="TYPE_NAME" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="retrieveAll" resultMap="BaseResultMap"> 
+		<![CDATA[ SELECT * FROM DIM_ADS_SLOT where 1=1 and IS_INUSE=1 ]]>
+	</select>
+
+</mapper>

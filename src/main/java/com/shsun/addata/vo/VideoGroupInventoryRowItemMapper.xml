@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="com.shsun.addata.vo.VideoGroupInventoryRowItemMapper">
+
+	<resultMap id="BaseResultMap"
+		type="com.shsun.addata.vo.VideoGroupInventoryRowItem">
+		<result column="DATE_TIME" property="DATE_TIME" jdbcType="TIMESTAMP" />
+		<result column="DATE_ID" property="DATE_ID" jdbcType="DECIMAL" />
+		<result column="SITE_ID" property="SITE_ID" jdbcType="DECIMAL" />
+		<result column="VIDEO_GROUP_ID" property="VIDEO_GROUP_ID"
+			jdbcType="DECIMAL" />
+		 
+		<result column="PROGRAMME_ID" property="VIDEO_GROUP_ID"
+			jdbcType="DECIMAL" />
+		<result column="PROGRAMME_NAME" property="VIDEO_GROUP_NAME"
+			jdbcType="VARCHAR" />
+		<result column="VIDEO_GROUP_NAME" property="VIDEO_GROUP_NAME"
+			jdbcType="VARCHAR" />
+		<result column="PROVINCE_ID" property="PROVINCE_ID" jdbcType="DECIMAL" />
+		<result column="VIDEO_LENGTH_ID" property="VIDEO_LENGTH_ID"
+			jdbcType="DECIMAL" />
+		<result column="SLOT_ID" property="SLOT_ID" jdbcType="DECIMAL" />
+		<result column="RADI" property="RADI" jdbcType="VARCHAR" />
+		<result column="MOBILE_SEGMENT_ID" property="MOBILE_SEGMENT_ID"
+			jdbcType="DECIMAL" />
+		<result column="SLOT_NAME" property="SLOT_NAME" jdbcType="VARCHAR" />
+		<result column="PROVINCE_NAME" property="PROVINCE_NAME"
+			jdbcType="VARCHAR" />
+		<result column="CITY_NAME" property="CITY_NAME" jdbcType="VARCHAR" />
+		<result column="CHANNEL_NAME" property="CHANNEL_NAME" jdbcType="VARCHAR" />
+		<result column="SUB_CHANNEL_NAME" property="SUB_CHANNEL_NAME"
+			jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<!-- $里面的是静态SQL，#是动态SQL -->
+	<select id="countBy" parameterType="com.shsun.addata.vo.VideoGroupInventorySqlParameterSource" statementType="STATEMENT" resultType="int"> 
+		<![CDATA[ SELECT COUNT(1) FROM ${TABLE_NAME} driver, ${DIM_TABLE_NAME} dim ]]>
+		<include refid="whereCondition" />
+	</select>
+	
+	<!-- 
+	<select id="mcountBy" parameterType="com.shsun.addata.vo.VideoGroupInventorySqlParameterSource" statementType="STATEMENT" resultType="int"> 
+		<![CDATA[ SELECT COUNT(1) FROM ${TABLE_NAME} driver, DIM_ADS_MOBILE_SEG seg, DIM_ADS_SLOT slot, ${DIM_TABLE_NAME} dim ]]>
+		<include refid="mwhereCondition" />
+	</select>
+	 -->
+	 
+	<!-- 
+	<select id="gcountBy" parameterType="com.shsun.addata.vo.VideoGroupInventorySqlParameterSource" statementType="STATEMENT" resultType="int">   
+		<![CDATA[ select count(1) from (select ]]>
+		<foreach item="pro" index="index" collection="DRIVER_GROUP_BY_PROPERTIES.getProperties()" open="" separator="," close=",">
+			<![CDATA[ ${pro} ]]>
+  		</foreach> 
+		<![CDATA[ count(1) from ${TABLE_NAME} driver, ${DIM_TABLE_NAME} dim  ]]>
+		<include refid="whereCondition" />
+		<![CDATA[ group by ]]>
+		<foreach item="pro" index="index" collection="DRIVER_GROUP_BY_PROPERTIES.getProperties()" open="" separator="," close=")">
+			<![CDATA[ ${pro} ]]>
+  		</foreach> 
+	</select>
+	 -->
+	 
+	 <select id="gcountBy" parameterType="com.shsun.addata.vo.VideoGroupInventorySqlParameterSource" statementType="STATEMENT" resultType="int">   		
+		<![CDATA[ select count(1) from (select ]]>
+		<include refid="groupbyedProperties" />
+		<![CDATA[, count(1) FROM ${TABLE_NAME} driver, ${DIM_TABLE_NAME} dim ]]>
+		<include refid="whereCondition" />
+		<![CDATA[ group by ]]>
+		<include refid="groupbyedProperties" />
+		<![CDATA[)]]>
+	</select>
+	
+	<!-- 
+	<select id="mgcountBy" parameterType="com.shsun.addata.vo.VideoGroupInventorySqlParameterSource" statementType="STATEMENT" resultType="int">   
+		<![CDATA[ select count(1) from (select ]]>
+		<include refid="groupbyedProperties" /> 
+		<![CDATA[, count(1) from ${TABLE_NAME} driver, DIM_ADS_MOBILE_SEG seg,DIM_ADS_SLOT slot, ${DIM_TABLE_NAME} dim  ]]>
+		<include refid="mwhereCondition" />
+		<![CDATA[ group by ]]>
+		<include refid="groupbyedProperties" />
+		<![CDATA[)]]>
+	</select>
+	 -->
+	<select id="retrievePage" parameterType="com.shsun.addata.vo.VideoGroupInventorySqlParameterSource" statementType="STATEMENT" resultMap="BaseResultMap"> 
+		<![CDATA[ 
+			SELECT t2.DATE_TIME,t2.DATE_ID,t2.SITE_ID,t2.${P_KEY_NAME},t2.PROVINCE_ID,t2.VIDEO_LENGTH_ID,t2.SLOT_ID, t2.${NAME}, 
+			round((case when t2.DATE_TIME<to_date('20130305','yyyy-mm-dd') and t2.SLOT_ID=2 then t2.RADI*1 when t2.SLOT_ID=2 then t2.RADI*1 else t2.RADI end)) as RADI
+		FROM 
+			(select 
+				t1.*, ROWNUM ROWNUM_ 
+			FROM 
+				(select driver.DATE_TIME as DATE_TIME, driver.DATE_ID as DATE_ID, driver.SITE_ID as SITE_ID, 
+				dim.${P_KEY_NAME} as ${P_KEY_NAME}, dim.${NAME} as ${NAME}, driver.PROVINCE_ID as PROVINCE_ID, driver.VIDEO_LENGTH_ID as VIDEO_LENGTH_ID, 
+				driver.SLOT_ID as SLOT_ID, driver.RADI as RADI 
+				FROM 
+					${TABLE_NAME} driver, ${DIM_TABLE_NAME} dim 
+		]]>
+				<include refid="whereCondition" />
+					order by driver.DATE_TIME desc, driver.RADI desc ) t1
+			<where>
+				<![CDATA[ ROWNUM <= ${END_ROW} ) t2 ]]>
+			</where> 
+		<where>
+			<![CDATA[ ROWNUM_ >=${START_ROW} ]]>	
+		</where>		
+	</select>
+	<!-- 
+	<select id="mretrievePage" parameterType="com.shsun.addata.vo.VideoGroupInventorySqlParameterSource" statementType="STATEMENT" resultMap="BaseResultMap"> 
+		<![CDATA[
+		SELECT t2.SLOT_ID,t2.MOBILE_SEGMENT_ID,
+			t2.VIDEO_LENGTH_ID,
+			t2.SITE_ID,
+			t2.CHANNEL_AGENT_ID,
+			t2.DATE_TIME,
+			t2.VIDEO_LENGTH_ID, 
+			round((case when t2.SLOT_ID=2 then t2.RADI*0.9 else t2.RADI end)) as RADI,
+			t2.TYPE_ID 
+		FROM 
+			(select 
+				t1.*, ROWNUM ROWNUM_ 
+			FROM 
+				(select 
+					 driver.SLOT_ID,driver.MOBILE_SEGMENT_ID,
+					driver.VIDEO_LENGTH_ID,
+					driver.SITE_ID,
+					driver.CHANNEL_AGENT_ID,
+					driver.PROVINCE_ID,
+					driver.CITY_ID,
+					driver.DATE_TIME, 
+					driver.RADI,
+					slot.TYPE_ID 
+					]]>
+				<![CDATA[
+				FROM 
+					${TABLE_NAME} driver, DIM_ADS_MOBILE_SEG seg, DIM_ADS_SLOT slot 
+				]]>
+				<include refid="mwhereCondition" />
+					order by driver.DATE_TIME desc, driver.RADI desc ) t1
+			<where>
+				<![CDATA[ ROWNUM <= ${END_ROW} ) t2 ]]>
+			</where> 
+		<where>
+			<![CDATA[ ROWNUM_ >${START_ROW} ]]>	
+		</where>		
+	</select>
+		 -->
+	<!-- 
+	<select id="gretrievePage" parameterType="com.shsun.addata.vo.VideoGroupInventorySqlParameterSource" statementType="STATEMENT" resultMap="BaseResultMap">
+		<![CDATA[ SELECT ]]>
+		<foreach item="pro" index="index" collection="DRIVER_GROUP_BY_PROPERTIES.getProperties()" open="" separator="," close=",">
+			<![CDATA[ t2.${pro} ]]>
+  		</foreach>		
+		<![CDATA[ round(t2.RADI) as RADI FROM (select t1.* , ROWNUM ROWNUM_ 
+		from 
+		(select ]]>
+			<foreach item="pro" index="index" collection="DRIVER_GROUP_BY_PROPERTIES.getProperties()" open="" separator="," close="">
+				<![CDATA[ driver.${pro} ]]>
+  			</foreach>
+  			<![CDATA[, sum( (case when driver.DATE_TIME<to_date('20130305','yyyy-mm-dd') and driver.SLOT_ID=2 and driver.video_length_id=1 then driver.RADI*2.3 when driver.slot_id=3 then 0 when driver.slot_id=9 then 0 when driver.slot_id=20 then 0 when driver.slot_id=2 and driver.video_length_id=1 then driver.RADI*2.7 else driver.RADI end) ) as RADI from ${TABLE_NAME} driver, ${DIM_TABLE_NAME} dim  ]]>
+				<include refid="whereCondition" />
+		group by 
+		<foreach item="pro" index="index" collection="DRIVER_GROUP_BY_PROPERTIES.getProperties()" open="" separator="," close="">
+			<![CDATA[ driver.${pro} ]]>
+  		</foreach> 
+  		<![CDATA[ order by RADI desc ) t1 where ROWNUM <= ${END_ROW} ) t2 where ROWNUM_ >${START_ROW} ]]>
+	</select>
+	 -->
+	 
+	 <select id="gretrievePage" parameterType="com.shsun.addata.vo.VideoGroupInventorySqlParameterSource" statementType="STATEMENT" resultMap="BaseResultMap">
+		<![CDATA[ SELECT ]]>
+		<include refid="selectedProperties" />
+		<![CDATA[, t2.RADI FROM (select t1.* , ROWNUM ROWNUM_ 
+		from 
+		(select ]]>
+			<include refid="groupbyedProperties" />
+  			<![CDATA[, SUM(driver.RADI) as RADI FROM ${TABLE_NAME} driver, ${DIM_TABLE_NAME} dim ]]>
+				<include refid="whereCondition" />
+		group by 
+			<include refid="groupbyedProperties" />
+  		<![CDATA[ order by RADI desc ) t1 where ROWNUM <= ${END_ROW} ) t2 where ROWNUM_ >=${START_ROW} ]]>
+	</select>
+	
+	
+	<!-- 
+	<select id="mgretrievePage" parameterType="com.shsun.addata.vo.VideoGroupInventorySqlParameterSource" statementType="STATEMENT" resultMap="BaseResultMap">
+		<![CDATA[ SELECT ]]>
+		<include refid="selectedProperties" />		
+		<![CDATA[, round(t2.RADI) as RADI FROM (select t1.* , ROWNUM ROWNUM_ 
+		from 
+		(select ]]>
+			<include refid="groupbyedProperties" />
+  			<![CDATA[, sum( (case when driver.slot_id=3 then 0 when driver.slot_id=9 then 0 when driver.slot_id=20 then 0 when driver.slot_id=2 then driver.RADI*0.9 else driver.RADI end) ) as RADI from ${TABLE_NAME} driver, DIM_ADS_MOBILE_SEG seg,DIM_ADS_SLOT slot ]]>
+ 				<include refid="mwhereCondition" />
+		group by 
+		<include refid="groupbyedProperties" />
+  		<![CDATA[ order by RADI desc ) t1 where ROWNUM <= ${END_ROW} ) t2 where ROWNUM_ >${START_ROW} ]]>
+	</select>
+	-->
+	
+	<sql id="selectedProperties">
+		<foreach item="pro" index="index" collection="GROUP_BY_PROPERTIES" open="" separator="," close="">
+				<![CDATA[t2.${pro}]]>
+  		</foreach>
+	</sql>
+	
+	
+	<!-- 
+	<sql id="mwhereCondition">  
+		<where> 
+			<include refid="commonWhereCondition" />
+			<if test="CHANNEL_AGENT_ID!=null and CHANNEL_AGENT_ID!=''">
+				<![CDATA[ AND driver.CHANNEL_AGENT_ID in ${CHANNEL_AGENT_ID} ]]>
+			</if>
+			<if test="SUB_CHANNEL_AGENT_ID!=null and SUB_CHANNEL_AGENT_ID!=''">
+				<![CDATA[ AND driver.SUB_CHANNEL_AGENT_ID in ${SUB_CHANNEL_AGENT_ID} ]]>
+			</if>
+			<if test="VIDEO_LENGTH_ID!=null and VIDEO_LENGTH_ID!=''">
+				<![CDATA[ AND driver.VIDEO_LENGTH_ID = ${VIDEO_LENGTH_ID} ]]>
+			</if>
+			<if test="MOBILE_SEGMENT_ID!=null and MOBILE_SEGMENT_ID!=''">
+				<![CDATA[ AND driver.MOBILE_SEGMENT_ID in ${MOBILE_SEGMENT_ID} ]]>
+			</if>
+			<if test="MOBILE_SEGMENT_ID!=null and MOBILE_SEGMENT_ID!=''">
+				<![CDATA[ AND driver.MOBILE_SEGMENT_ID = seg.MOBILE_SEGMENT_ID ]]>
+			</if>
+			<![CDATA[ AND driver.SLOT_ID = slot.SLOT_ID ]]>
+		</where>
+	</sql>
+	 -->	
+	
+	<sql id="groupbyedProperties">
+		<foreach item="pro" index="index" collection="GROUP_BY_ALIASED_PROPERTIES" open="" separator="," close="">
+				<![CDATA[${pro}]]>
+  		</foreach>	
+	</sql>
+
+	<sql id="whereCondition">
+		<where> 
+			<include refid="commonWhereCondition" />
+		</where>
+	</sql>
+	
+	<sql id="commonWhereCondition">
+			<![CDATA[ 2=2 and 1=1 AND driver.${F_KEY_NAME} = dim.${F_KEY_NAME} ]]> 
+			<if test="START_DATE!=null and START_DATE!=''">
+				<![CDATA[ AND driver.DATE_TIME >= to_date('${START_DATE}', 'RR-MM-DD') ]]>
+			</if>
+			<if test="END_DATE!=null and END_DATE!=''">
+				<![CDATA[ AND driver.DATE_TIME <= to_date('${END_DATE}', 'RR-MM-DD') ]]>
+			</if>
+			<if test="SLOT_ID!=null and SLOT_ID!=''">
+				<![CDATA[ AND driver.SLOT_ID in ${SLOT_ID} ]]>
+			</if>
+			<if test="VIDEO_LENGTH_ID!=null and VIDEO_LENGTH_ID!=''">
+				<![CDATA[ AND driver.VIDEO_LENGTH_ID=${VIDEO_LENGTH_ID} ]]>
+			</if>
+			<if test="SITE_ID!=null and SITE_ID!=''">
+				<![CDATA[ AND driver.SITE_ID = ${SITE_ID} ]]>
+			</if>
+			<if test="VIDEO_GROUP_ID!=null and VIDEO_GROUP_ID!=''">
+				<![CDATA[ AND driver.VIDEO_GROUP_ID = ${VIDEO_GROUP_ID} ]]>
+			</if>
+			<if test="VIDEO_GROUP_NAME!=null and VIDEO_GROUP_NAME!=''">
+				<![CDATA[ AND dim.VIDEO_GROUP_NAME LIKE '%${VIDEO_GROUP_NAME}%' ]]>
+			</if>
+			<if test="PROGRAMME_AGENT_ID!=null and PROGRAMME_AGENT_ID!=''">
+				<![CDATA[ AND dim.PROGRAMME_ID = ${PROGRAMME_AGENT_ID} ]]>
+			</if>
+			<if test="PROGRAMME_NAME!=null and PROGRAMME_NAME!=''">
+				<![CDATA[ AND dim.PROGRAMME_NAME LIKE '%${PROGRAMME_NAME}%' ]]>
+			</if>
+	</sql>
+	
+</mapper>

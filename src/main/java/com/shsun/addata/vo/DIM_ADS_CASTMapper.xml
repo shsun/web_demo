@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shsun.addata.vo.DIM_ADS_CASTMapper">
+	<resultMap id="BaseResultMap" type="com.shsun.addata.vo.DIM_ADS_CAST">
+		<result column="CAST_ID" property="CAST_ID" jdbcType="DECIMAL" />
+		<result column="CAST_NAME" property="CAST_NAME" jdbcType="VARCHAR" />
+		<result column="IS_CHANNEL_LIMIT" property="IS_CHANNEL_LIMIT"
+			jdbcType="DECIMAL" />
+		<result column="IS_REGION_LIMIT" property="IS_REGION_LIMIT"
+			jdbcType="DECIMAL" />
+		<result column="IS_IPVIP" property="IS_IPVIP" jdbcType="DECIMAL" />
+		<result column="IS_INVIDEO" property="IS_INVIDEO" jdbcType="DECIMAL" />
+		<result column="IS_INDEXTURBO" property="IS_INDEXTURBO"
+			jdbcType="DECIMAL" />
+		<result column="IS_ISPLIMIT" property="IS_ISPLIMIT" jdbcType="DECIMAL" />
+		<result column="IS_AMOUNT" property="IS_AMOUNT" jdbcType="DECIMAL" />
+		<result column="IS_KEYWORDLIMIT" property="IS_KEYWORDLIMIT"
+			jdbcType="DECIMAL" />
+		<result column="IS_AUSERLIMIT" property="IS_AUSERLIMIT"
+			jdbcType="DECIMAL" />
+		<result column="IS_VIDLIMIT" property="IS_VIDLIMIT" jdbcType="DECIMAL" />
+		<result column="IS_COPYRIGHTLIMIT" property="IS_COPYRIGHTLIMIT"
+			jdbcType="DECIMAL" />
+		<result column="IS_THEATERLIMIT" property="IS_THEATERLIMIT"
+			jdbcType="DECIMAL" />
+		<result column="CAST_START_DATE" property="CAST_START_DATE"
+			jdbcType="TIMESTAMP" />
+		<result column="CAST_END_DATE" property="CAST_END_DATE"
+			jdbcType="TIMESTAMP" />
+		<result column="CONFIG_POS_ID" property="CONFIG_POS_ID"
+			jdbcType="VARCHAR" />
+		<result column="AD_TYPE" property="AD_TYPE" jdbcType="VARCHAR" />
+		<result column="CAST_PRIORITY" property="CAST_PRIORITY"
+			jdbcType="VARCHAR" />
+		<result column="CAST_CITY" property="CAST_CITY" jdbcType="VARCHAR" />
+		<result column="CAST_PROVINCE" property="CAST_PROVINCE"
+			jdbcType="VARCHAR" />
+		<result column="CAST_CHANNEL" property="CAST_CHANNEL" jdbcType="VARCHAR" />
+		<result column="CAST_SUBCHANNEL" property="CAST_SUBCHANNEL"
+			jdbcType="VARCHAR" />
+		<result column="CONTRACT_ID" property="CONTRACT_ID" jdbcType="DECIMAL" />
+		<result column="CONTRACT_NAME" property="CONTRACT_NAME"
+			jdbcType="VARCHAR" />
+		<result column="CONTRACT_TYPE" property="CONTRACT_TYPE"
+			jdbcType="VARCHAR" />
+		<result column="CONTRACT_NUMBER" property="CONTRACT_NUMBER"
+			jdbcType="VARCHAR" />
+		<result column="CUSTOMER_ID" property="CUSTOMER_ID" jdbcType="DECIMAL" />
+		<result column="CUSTOMER_NAME" property="CUSTOMER_NAME"
+			jdbcType="VARCHAR" />
+		<result column="CUSTOMER_LEVEL" property="CUSTOMER_LEVEL"
+			jdbcType="VARCHAR" />
+		<result column="CUSTOMER_TYPE" property="CUSTOMER_TYPE"
+			jdbcType="VARCHAR" />
+		<result column="CUSTOMER_SUB_TYPE" property="CUSTOMER_SUB_TYPE"
+			jdbcType="VARCHAR" />
+		<result column="IS_REGISTER" property="IS_REGISTER" jdbcType="DECIMAL" />
+		<result column="PROVINCE_ID" property="PROVINCE_ID" jdbcType="VARCHAR" />
+		<result column="CRM_COMPANY_ID_01" property="CRM_COMPANY_ID_01"
+			jdbcType="VARCHAR" />
+		<result column="CRM_COMPANY_ID_02" property="CRM_COMPANY_ID_02"
+			jdbcType="VARCHAR" />
+		<result column="CRM_COMPANY_ID_03" property="CRM_COMPANY_ID_03"
+			jdbcType="VARCHAR" />
+	</resultMap>
+
+	<select id="retrieveAll" resultMap="BaseResultMap"> 
+		<![CDATA[ SELECT * FROM DIM_ADS_CAST where 1=1 ]]>
+	</select>
+
+</mapper>

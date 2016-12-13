@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shsun.addata.vo.DIM_ADS_CREATIVEMapper" >
+  <resultMap id="BaseResultMap" type="com.shsun.addata.vo.DIM_ADS_CREATIVE" >
+    <result column="CREATIVE_ID" property="CREATIVE_ID" jdbcType="DECIMAL" />
+    <result column="CREATIVE_NAME" property="CREATIVE_NAME" jdbcType="VARCHAR" />
+    <result column="CAMPAIGN_NAME" property="CAMPAIGN_NAME" jdbcType="VARCHAR" />
+    <result column="CAMPAIGN_STARTDATE" property="CAMPAIGN_STARTDATE" jdbcType="TIMESTAMP" />
+    <result column="CAMPAIGN_ENDDATE" property="CAMPAIGN_ENDDATE" jdbcType="TIMESTAMP" />
+    <result column="SHOWTIME" property="SHOWTIME" jdbcType="VARCHAR" />
+    <result column="NUM_LIMIT" property="NUM_LIMIT" jdbcType="DECIMAL" />
+    <result column="DAY_LIMIT" property="DAY_LIMIT" jdbcType="DECIMAL" />
+    <result column="WEEK_LIMIT" property="WEEK_LIMIT" jdbcType="DECIMAL" />
+    <result column="CAMPAIGN_PERIOD" property="CAMPAIGN_PERIOD" jdbcType="DECIMAL" />
+    <result column="CAMPAIGN_PERIOD_LIMIT" property="CAMPAIGN_PERIOD_LIMIT" jdbcType="DECIMAL" />
+    <result column="CAST_ID" property="CAST_ID" jdbcType="DECIMAL" />
+    <result column="CAST_NAME" property="CAST_NAME" jdbcType="VARCHAR" />
+    <result column="IS_CHANNEL_LIMIT" property="IS_CHANNEL_LIMIT" jdbcType="DECIMAL" />
+    <result column="IS_REGION_LIMIT" property="IS_REGION_LIMIT" jdbcType="DECIMAL" />
+    <result column="CAST_CITY" property="CAST_CITY" jdbcType="VARCHAR" />
+    <result column="CAST_PROVINCE" property="CAST_PROVINCE" jdbcType="VARCHAR" />
+    <result column="CAST_CHANNEL" property="CAST_CHANNEL" jdbcType="VARCHAR" />
+    <result column="CAST_SUBCHANNEL" property="CAST_SUBCHANNEL" jdbcType="VARCHAR" />
+    <result column="CONTRACT_ID" property="CONTRACT_ID" jdbcType="DECIMAL" />
+    <result column="CONTRACT_NAME" property="CONTRACT_NAME" jdbcType="VARCHAR" />
+    <result column="CONTRACT_TYPE" property="CONTRACT_TYPE" jdbcType="VARCHAR" />
+    <result column="CONTRACT_NUMBER" property="CONTRACT_NUMBER" jdbcType="VARCHAR" />
+    <result column="CUSTOMER_ID" property="CUSTOMER_ID" jdbcType="DECIMAL" />
+    <result column="CUSTOMER_NAME" property="CUSTOMER_NAME" jdbcType="VARCHAR" />
+    <result column="CUSTOMER_LEVEL" property="CUSTOMER_LEVEL" jdbcType="VARCHAR" />
+    <result column="CUSTOMER_TYPE" property="CUSTOMER_TYPE" jdbcType="VARCHAR" />
+    <result column="CUSTOMER_SUB_TYPE" property="CUSTOMER_SUB_TYPE" jdbcType="VARCHAR" />
+    <result column="IS_REGISTER" property="IS_REGISTER" jdbcType="DECIMAL" />
+    <result column="PROVINCE_ID" property="PROVINCE_ID" jdbcType="VARCHAR" />
+    <result column="CRM_COMPANY_ID_01" property="CRM_COMPANY_ID_01" jdbcType="VARCHAR" />
+    <result column="CRM_COMPANY_ID_02" property="CRM_COMPANY_ID_02" jdbcType="VARCHAR" />
+    <result column="CRM_COMPANY_ID_03" property="CRM_COMPANY_ID_03" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>
