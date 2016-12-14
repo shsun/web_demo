@@ -71,7 +71,6 @@ public class SpringValidatorHolder implements InitializingBean {
         }
     }
 
-    @SuppressWarnings("unchecked")
     public static String getErrorMessage(BindException e) {
         List<FieldError> errors = e.getFieldErrors();
         StringBuffer sb = null;

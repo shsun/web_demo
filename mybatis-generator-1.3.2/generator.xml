@@ -14,14 +14,14 @@
 		<commentGenerator>
 			<property name="suppressAllComments" value="true" />
 		</commentGenerator>
-		<!--
-		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.106.23.167:1522:adv" userId="myname" password="123456">
+		
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://localhost:3306/shsun_db?characterEncoding=utf8" userId="root" password="123456">
 		</jdbcConnection>
-		-->
+        <!--
 		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@10.103.23.103:1523:test" userId="myname" password="123456">
 		</jdbcConnection>
-		
-
+		-->
+        
 		<javaTypeResolver>
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
@@ -32,7 +32,7 @@
 			<property name="enableSubPackages" value="false" />
 			<property name="trimStrings" value="false" />
 		</javaModelGenerator>
-		<sqlMapGenerator targetPackage="mapper" targetProject="./src/main/resource">
+		<sqlMapGenerator targetPackage="mapper" targetProject="./src/main/resources">
 			<property name="enableSubPackages" value="false" />
 		</sqlMapGenerator>
 		<javaClientGenerator type="XMLMAPPER" targetPackage="com.shsun.addata.vo" targetProject="./src/main/java">
@@ -40,115 +40,17 @@
 		</javaClientGenerator>
 
 		<!-- constans -->
-		<table tableName="DIM_ADS_CHANNEL" domainObjectName="DIM_ADS_CHANNEL" 
+		<table tableName="Channel" domainObjectName="Channel" 
 				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
 				<property name="useActualColumnNames" value="true" />
 		</table>		
-		<table tableName="DIM_ADS_CHANNEL_SUB" domainObjectName="DIM_ADS_CHANNEL_SUB" 
+		<table tableName="Item" domainObjectName="Item" 
 				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
 				<property name="useActualColumnNames" value="true" />
 		</table>
-		<table tableName="DIM_COM_PROVINCE" domainObjectName="DIM_COM_PROVINCE" 
+		<table tableName="Actor" domainObjectName="Actor" 
 				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
 				<property name="useActualColumnNames" value="true" />
 		</table>
-		<table tableName="DIM_COM_CITY" domainObjectName="DIM_COM_CITY" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>		
-		<table tableName="DIM_ADS_SLOT" domainObjectName="DIM_ADS_SLOT" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true" escapeWildcards="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-		<table tableName="DIM_ADS_TYPE" domainObjectName="DIM_ADS_TYPE" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-		<table tableName="DIM_ADS_VIDEOGP" domainObjectName="DIM_ADS_VIDEOGP" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-		<table tableName="DIM_ADS_PROGRAMME" domainObjectName="DIM_ADS_PROGRAMME" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-		
-		
-		<!-- inventory -->
-        <!--
-		<table tableName="DW_ADS_ADI_VADS_HOUR" domainObjectName="DW_ADS_ADI_VADS_HOUR" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-		-->
-		<table tableName="DW_ADS_ADI_DAY" domainObjectName="DW_ADS_ADI_DAY" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>		
-		<table tableName="DW_ADS_ADI_HOUR" domainObjectName="DW_ADS_ADI_HOUR" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-		<table tableName="DW_ADS_MOBILE_ADI_DAY" domainObjectName="DW_ADS_MOBILE_ADI_DAY" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-		<!-- video group inventory -->
-		<table tableName="DW_ADS_M_ADI_VIDEO_DAY" domainObjectName="DW_ADS_M_ADI_VIDEO_DAY" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-		<table tableName="DW_ADS_ADI_VIDEOGP_DAY" domainObjectName="DW_ADS_ADI_VIDEOGP_DAY" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-		<table tableName="DW_ADS_M_ADI_VIDEOGP_DAY" domainObjectName="DW_ADS_M_ADI_VIDEOGP_DAY" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-		<table tableName="DW_ADS_ADI_PROGRAMME_DAY" domainObjectName="DW_ADS_ADI_PROGRAMME_DAY" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-
-		<!-- impression -->
-		<!--
-		<table tableName="DW_ADS_IMP_VADS_HOUR" domainObjectName="DW_ADS_IMP_VADS_HOUR" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-		-->
-		<table tableName="DW_ADS_IMP_DAY" domainObjectName="DW_ADS_IMP_DAY" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-		<table tableName="DW_ADS_IMP_HOUR" domainObjectName="DW_ADS_IMP_HOUR" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-		<table tableName="DW_ADS_MOBILE_IMP_DAY" domainObjectName="DW_ADS_MOBILE_IMP_DAY" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-
-		<!-- campagin -->
-		<table tableName="DIM_ADS_CREATIVE" domainObjectName="DIM_ADS_CREATIVE" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-		<table tableName="DIM_ADS_CAST" domainObjectName="DIM_ADS_CAST" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-		<table tableName="DIM_ADS_CONTRACT" domainObjectName="DIM_ADS_CONTRACT" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-		<table tableName="DIM_ADS_MOBILE_SEG" domainObjectName="DIM_ADS_MOBILE_SEG" 
-				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
-				<property name="useActualColumnNames" value="true" />
-		</table>
-
-
 	</context>
 </generatorConfiguration>
