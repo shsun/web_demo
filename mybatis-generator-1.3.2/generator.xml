@@ -52,5 +52,23 @@
 				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
 				<property name="useActualColumnNames" value="true" />
 		</table>
+
+		<table tableName="provinces" domainObjectName="Provinces" 
+				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
+				<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="cities" domainObjectName="Cities" 
+				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
+				<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="areas" domainObjectName="Areas" 
+				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
+				<property name="useActualColumnNames" value="true" />
+		</table>
+		<table tableName="zipcode" domainObjectName="ZipCodes" 
+				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
+				<property name="useActualColumnNames" value="true" />
+		</table>
+
 	</context>
 </generatorConfiguration>

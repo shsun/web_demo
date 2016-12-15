@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shsun.addata.vo.ZipCodesMapper" >
+  <resultMap id="BaseResultMap" type="com.shsun.addata.vo.ZipCodes" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="areaid" property="areaid" jdbcType="VARCHAR" />
+    <result column="zip" property="zip" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, areaid, zip, code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from zipcode
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from zipcode
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shsun.addata.vo.ZipCodes" >
+    update zipcode
+    <set >
+      <if test="areaid != null" >
+        areaid = #{areaid,jdbcType=VARCHAR},
+      </if>
+      <if test="zip != null" >
+        zip = #{zip,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shsun.addata.vo.ZipCodes" >
+    update zipcode
+    set areaid = #{areaid,jdbcType=VARCHAR},
+      zip = #{zip,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

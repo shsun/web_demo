@@ -9,6 +9,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import com.shsun.addata.ApplicationConstants;
+import com.shsun.addata.vo.Channel;
 import com.shsun.addata.vo.DIM_ADS_CHANNEL;
 import com.shsun.addata.vo.DIM_ADS_CHANNEL_SUB;
 import com.youdo.m.IJSONObjectParsable;
@@ -20,14 +21,14 @@ import com.youdo.m.IJSONObjectParsable;
  */
 public class ChannelVO implements IJSONObjectParsable {
 
-	private DIM_ADS_CHANNEL wrappedObj;
+	private Channel wrappedObj;
 
 	/**
 	 * DIM_ADS_CHANNEL_SUB.SUB_CHANNEL_AGENT_ID <----> DIM_ADS_CHANNEL_SUB
 	 */
 	private Map< Long, DIM_ADS_CHANNEL_SUB > children = new HashMap< Long, DIM_ADS_CHANNEL_SUB >();
 
-	public ChannelVO(DIM_ADS_CHANNEL wrappedObj, List< DIM_ADS_CHANNEL_SUB > list) {
+	public ChannelVO(Channel wrappedObj, List< DIM_ADS_CHANNEL_SUB > list) {
 		this.setWrappedObj(wrappedObj);
 		if (list != null) {
 			for (int i = 0; i < list.size(); i++) {
@@ -48,11 +49,11 @@ public class ChannelVO implements IJSONObjectParsable {
 		this.children = children;
 	}
 
-	public DIM_ADS_CHANNEL getWrappedObj() {
+	public Channel getWrappedObj() {
 		return wrappedObj;
 	}
 
-	public void setWrappedObj( DIM_ADS_CHANNEL wrappedObj ) {
+	public void setWrappedObj( Channel wrappedObj ) {
 		this.wrappedObj = wrappedObj;
 	}
 
