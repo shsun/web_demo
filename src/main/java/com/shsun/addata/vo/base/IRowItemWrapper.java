@@ -12,32 +12,32 @@ import com.shsun.addata.support.vo.channel.SubChannelVO;
  * @param <POJO>
  */
 public interface IRowItemWrapper {
-	// ------------------------------------------------------------------------------------
-	public void setRowItem(IRowResultSetItem item);
+    // ------------------------------------------------------------------------------------
+    public void setRowItem(IRowResultSetItem item);
 
-	public IRowResultSetItem getRowItem();
+    public IRowResultSetItem getRowItem();
 
-	// ------------------------------------------------------------------------------------
-	public void setHttpServletRequestParameter(IHttpServletRequestParameter parameter);
+    // ------------------------------------------------------------------------------------
+    public void setHttpServletRequestParameter(IHttpServletRequestParameter parameter);
 
-	public IHttpServletRequestParameter getHttpServletRequestParameter();
+    public IHttpServletRequestParameter getHttpServletRequestParameter();
 
-	// ------------------------------------------------------------------------------------
-	public void setProvinceVO(DIM_COM_CITY province);
+    // ------------------------------------------------------------------------------------
+    public void setProvinceVO(DIM_COM_CITY province);
 
-	public DIM_COM_CITY getProvinceVO();
+    public DIM_COM_CITY getProvinceVO();
 
-	public void setCityVO(DIM_COM_CITY city);
+    public void setCityVO(DIM_COM_CITY city);
 
-	public DIM_COM_CITY getCityVO();
+    public DIM_COM_CITY getCityVO();
 
-	// ------------------------------------------------------------------------------------
-	public void setChannelVO(ChannelVO channelVO);
+    // ------------------------------------------------------------------------------------
+    public void setChannelVO(ChannelVO channelVO);
 
-	public void setSubChannelVO(SubChannelVO subChannelVO);
+    public void setSubChannelVO(SubChannelVO subChannelVO);
 
-	public ChannelVO getChannelVO();
+    public ChannelVO getChannelVO();
 
-	public SubChannelVO getSubChannelVO();
+    public SubChannelVO getSubChannelVO();
 
 }

@@ -1,9 +1,6 @@
 package com.shsun.addata.vo.base;
 
 import com.shsun.addata.ApplicationConstants;
-import com.shsun.addata.vo.DIM_ADS_MOBILE_SEG;
-import com.shsun.addata.vo.DIM_ADS_SLOT;
-import com.shsun.addata.vo.DIM_ADS_TYPE;
 import com.shsun.addata.vo.InventoryHttpServletResponseItem;
 import com.shsun.addata.vo.InventoryRowItem;
 import com.youdo.util.lang.reflect.YouDoReflectorUtil;
