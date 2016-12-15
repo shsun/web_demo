@@ -1,4 +1,4 @@
-package com.shsun.addata.vo;
+package com.shsun.addata.enty.raw;
 
 public class Areas {
     private Integer id;

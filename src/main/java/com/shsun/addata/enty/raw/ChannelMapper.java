@@ -1,6 +1,6 @@
-package com.shsun.addata.vo;
+package com.shsun.addata.enty.raw;
 
-import com.shsun.addata.vo.Channel;
+import com.shsun.addata.enty.raw.Channel;
 
 public interface ChannelMapper {
     int deleteByPrimaryKey(Integer id);

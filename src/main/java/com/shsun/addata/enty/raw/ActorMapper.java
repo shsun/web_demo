@@ -1,6 +1,6 @@
-package com.shsun.addata.vo;
+package com.shsun.addata.enty.raw;
 
-import com.shsun.addata.vo.Actor;
+import com.shsun.addata.enty.raw.Actor;
 
 public interface ActorMapper {
     int deleteByPrimaryKey(Integer id);

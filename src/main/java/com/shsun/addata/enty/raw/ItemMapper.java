@@ -1,6 +1,6 @@
-package com.shsun.addata.vo;
+package com.shsun.addata.enty.raw;
 
-import com.shsun.addata.vo.Item;
+import com.shsun.addata.enty.raw.Item;
 
 public interface ItemMapper {
     int deleteByPrimaryKey(Integer id);

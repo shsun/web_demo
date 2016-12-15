@@ -1,4 +1,4 @@
-package com.shsun.addata.vo;
+package com.shsun.addata.enty.raw;
 
 public class Actor {
     private Integer id;

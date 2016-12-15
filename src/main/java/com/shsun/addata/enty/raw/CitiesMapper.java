@@ -1,6 +1,6 @@
-package com.shsun.addata.vo;
+package com.shsun.addata.enty.raw;
 
-import com.shsun.addata.vo.Cities;
+import com.shsun.addata.enty.raw.Cities;
 
 public interface CitiesMapper {
     int deleteByPrimaryKey(Integer id);

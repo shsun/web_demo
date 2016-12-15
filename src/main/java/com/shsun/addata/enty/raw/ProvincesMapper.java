@@ -1,6 +1,6 @@
-package com.shsun.addata.vo;
+package com.shsun.addata.enty.raw;
 
-import com.shsun.addata.vo.Provinces;
+import com.shsun.addata.enty.raw.Provinces;
 
 public interface ProvincesMapper {
     int deleteByPrimaryKey(Integer id);

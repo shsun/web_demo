@@ -1,6 +1,6 @@
-package com.shsun.addata.vo;
+package com.shsun.addata.enty.raw;
 
-import com.shsun.addata.vo.ZipCodes;
+import com.shsun.addata.enty.raw.ZipCodes;
 
 public interface ZipCodesMapper {
     int deleteByPrimaryKey(Integer id);
