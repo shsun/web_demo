@@ -1,6 +1,6 @@
-package com.shsun.addata.enty.raw;
+package com.shsun.addata.entry.raw;
 
-public class Cities {
+public class City {
     private Integer id;
 
     private String cityid;

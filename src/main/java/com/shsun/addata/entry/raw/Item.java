@@ -1,4 +1,4 @@
-package com.shsun.addata.enty.raw;
+package com.shsun.addata.entry.raw;
 
 public class Item {
     private Integer id;

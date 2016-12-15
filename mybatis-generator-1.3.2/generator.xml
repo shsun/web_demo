@@ -28,7 +28,7 @@
 
 
 		<!--  -->
-		<javaModelGenerator targetPackage="com.shsun.addata.enty.raw" targetProject="./src/main/java">
+		<javaModelGenerator targetPackage="com.shsun.addata.entry.raw" targetProject="./src/main/java">
 			<property name="enableSubPackages" value="false" />
 			<property name="trimStrings" value="false" />
 		</javaModelGenerator>
@@ -53,19 +53,19 @@
 				<property name="useActualColumnNames" value="true" />
 		</table>
 
-		<table tableName="provinces" domainObjectName="Provinces" 
+		<table tableName="provinces" domainObjectName="Province" 
 				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
 				<property name="useActualColumnNames" value="true" />
 		</table>
-		<table tableName="cities" domainObjectName="Cities" 
+		<table tableName="cities" domainObjectName="City" 
 				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
 				<property name="useActualColumnNames" value="true" />
 		</table>
-		<table tableName="areas" domainObjectName="Areas" 
+		<table tableName="areas" domainObjectName="Area" 
 				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
 				<property name="useActualColumnNames" value="true" />
 		</table>
-		<table tableName="zipcode" domainObjectName="ZipCodes" 
+		<table tableName="zipcode" domainObjectName="ZipCode" 
 				enableInsert="false" enableSelectByPrimaryKey="true" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByPrimaryKeyQueryId="true"  selectByExampleQueryId="true">
 				<property name="useActualColumnNames" value="true" />
 		</table>

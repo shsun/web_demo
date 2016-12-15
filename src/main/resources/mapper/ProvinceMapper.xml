@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.shsun.addata.enty.raw.ProvincesMapper">
-  <resultMap id="BaseResultMap" type="com.shsun.addata.enty.raw.Provinces">
+<mapper namespace="com.shsun.addata.enty.raw.ProvinceMapper">
+  <resultMap id="BaseResultMap" type="com.shsun.addata.entry.raw.Province">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="provinceid" jdbcType="VARCHAR" property="provinceid" />
     <result column="province" jdbcType="VARCHAR" property="province" />
@@ -19,7 +19,7 @@
     delete from provinces
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <update id="updateByPrimaryKeySelective" parameterType="com.shsun.addata.enty.raw.Provinces">
+  <update id="updateByPrimaryKeySelective" parameterType="com.shsun.addata.entry.raw.Province">
     update provinces
     <set>
       <if test="provinceid != null">
@@ -31,13 +31,13 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.shsun.addata.enty.raw.Provinces">
+  <update id="updateByPrimaryKey" parameterType="com.shsun.addata.entry.raw.Province">
     update provinces
     set provinceid = #{provinceid,jdbcType=VARCHAR},
       province = #{province,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <resultMap id="BaseResultMap" type="com.shsun.addata.vo.Provinces">
+  <resultMap id="BaseResultMap" type="com.shsun.addata.entry.raw.Province">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="provinceid" jdbcType="VARCHAR" property="provinceid" />
     <result column="province" jdbcType="VARCHAR" property="province" />
@@ -55,7 +55,7 @@
     delete from provinces
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <update id="updateByPrimaryKeySelective" parameterType="com.shsun.addata.vo.Provinces">
+  <update id="updateByPrimaryKeySelective" parameterType="com.shsun.addata.entry.raw.Province">
     update provinces
     <set>
       <if test="provinceid != null">
@@ -67,7 +67,43 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.shsun.addata.vo.Provinces">
+  <update id="updateByPrimaryKey" parameterType="com.shsun.addata.entry.raw.Province">
+    update provinces
+    set provinceid = #{provinceid,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shsun.addata.enty.raw.Province">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="provinceid" jdbcType="VARCHAR" property="provinceid" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, provinceid, province
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from provinces
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from provinces
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shsun.addata.enty.raw.Province">
+    update provinces
+    <set>
+      <if test="provinceid != null">
+        provinceid = #{provinceid,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null">
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shsun.addata.enty.raw.Province">
     update provinces
     set provinceid = #{provinceid,jdbcType=VARCHAR},
       province = #{province,jdbcType=VARCHAR}

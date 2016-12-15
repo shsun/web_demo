@@ -1,6 +1,6 @@
-package com.shsun.addata.enty.raw;
+package com.shsun.addata.entry.raw;
 
-public class ZipCodes {
+public class ZipCode {
     private Integer id;
 
     private String areaid;
