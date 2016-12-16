@@ -1,7 +1,8 @@
 package com.shsun.addata.support.vo;
 
+import com.youdo.interfaces.IJSONObjectParsable;
+
 import net.sf.json.JSONObject;
-import com.youdo.m.IJSONObjectParsable;
 
 /**
  * 

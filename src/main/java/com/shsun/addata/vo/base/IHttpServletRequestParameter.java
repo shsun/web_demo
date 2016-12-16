@@ -5,7 +5,7 @@ import java.io.OutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.youdo.m.IJSONObjectParsable;
+import com.youdo.interfaces.IJSONObjectParsable;
 import com.youdo.mybatis.Page;
 import com.shsun.addata.support.vo.ErrorDescriptor;
 import com.shsun.addata.support.vo.GroupByVO;

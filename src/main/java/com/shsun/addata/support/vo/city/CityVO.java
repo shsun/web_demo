@@ -3,7 +3,7 @@ package com.shsun.addata.support.vo.city;
 import net.sf.json.JSONObject;
 
 import com.shsun.addata.vo.DIM_COM_CITY;
-import com.youdo.m.IJSONObjectParsable;
+import com.youdo.interfaces.IJSONObjectParsable;
 
 /**
  * 

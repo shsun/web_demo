@@ -7,15 +7,15 @@ import java.util.Set;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-import com.youdo.m.IBaseKVObjectContainer;
-import com.youdo.m.IJSONObjectParsable;
+import com.youdo.interfaces.IMutableContainer;
+import com.youdo.interfaces.IJSONObjectParsable;
 
 /**
  * 
  * @author shsun
  * 
  */
-public class GeoVOCollector implements IBaseKVObjectContainer< ProvinceVO >, IJSONObjectParsable {
+public class GeoVOCollector implements IMutableContainer< ProvinceVO >, IJSONObjectParsable {
 
 	private Map< Integer, ProvinceVO > collection = new HashMap< Integer, ProvinceVO >();
 

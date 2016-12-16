@@ -12,7 +12,7 @@ import com.shsun.addata.ApplicationConstants;
 import com.shsun.addata.vo.Channel;
 import com.shsun.addata.vo.DIM_ADS_CHANNEL;
 import com.shsun.addata.vo.DIM_ADS_CHANNEL_SUB;
-import com.youdo.m.IJSONObjectParsable;
+import com.youdo.interfaces.IJSONObjectParsable;
 
 /**
  * 

@@ -3,7 +3,7 @@ package com.shsun.addata.support.vo.channel;
 import net.sf.json.JSONObject;
 
 import com.shsun.addata.vo.DIM_ADS_CHANNEL_SUB;
-import com.youdo.m.IJSONObjectParsable;
+import com.youdo.interfaces.IJSONObjectParsable;
 
 /**
  * 

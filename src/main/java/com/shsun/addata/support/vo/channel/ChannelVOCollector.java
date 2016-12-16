@@ -8,15 +8,15 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import com.shsun.addata.ApplicationConstants.Site;
-import com.youdo.m.IBaseKVObjectContainer;
-import com.youdo.m.IJSONObjectParsable;
+import com.youdo.interfaces.IMutableContainer;
+import com.youdo.interfaces.IJSONObjectParsable;
 
 /**
  * 
  * @author shsun
  * 
  */
-public class ChannelVOCollector implements IBaseKVObjectContainer<ChannelVO>, IJSONObjectParsable {
+public class ChannelVOCollector implements IMutableContainer<ChannelVO>, IJSONObjectParsable {
 
 	private Map<Integer, ChannelVO> collection = new HashMap<Integer, ChannelVO>();
 

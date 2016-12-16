@@ -9,15 +9,15 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import com.shsun.addata.vo.DIM_COM_CITY;
-import com.youdo.m.IBaseKVObjectContainer;
-import com.youdo.m.IJSONObjectParsable;
+import com.youdo.interfaces.IMutableContainer;
+import com.youdo.interfaces.IJSONObjectParsable;
 
 /**
  * 
  * @author shsun
  * 
  */
-public class RegionVOContainer implements IBaseKVObjectContainer<DIM_COM_CITY>,IJSONObjectParsable {
+public class RegionVOContainer implements IMutableContainer<DIM_COM_CITY>,IJSONObjectParsable {
 
 	static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(RegionVOContainer.class);
 
