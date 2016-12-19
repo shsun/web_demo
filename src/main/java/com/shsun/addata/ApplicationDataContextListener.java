@@ -31,7 +31,6 @@ public class ApplicationDataContextListener extends ContextLoaderListener {
         service.reloadAdSlot();
         service.reloadAdType();
         service.reloadSegment();
-        // service.reloadVideoGroup();
     }
 
     @Override
