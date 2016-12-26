@@ -20,7 +20,7 @@
         select * from user
     </select>
     
-    <insert id="save" useGeneratedKeys="true" keyProperty="user_pk" parameterType="com.myd.entity.User">
+    <insert id="save" useGeneratedKeys="true" keyProperty="user_pk" parameterType="com.shsun.entity.User">
     	<selectKey keyProperty="user_pk" resultType="String" order="BEFORE">
 			select uuid()    	
     	</selectKey>
