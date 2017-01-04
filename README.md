@@ -1,2 +1,24 @@
 # web_demo
 based on ssm+extjs
+
+
+=================================== install the 3rd party jars
+1. mvn install:install-file -DgroupId=uk.org.simonsite -DartifactId=log4j-rolling-appender -Dpackaging=jar -Dversion=20120703-0826 -Dfile=lib/log4j-rolling-appender-20120425-2221.jar -DgeneratePom=true;
+2. mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc -Dpackaging=jar -Dversion=6.0 -Dfile=lib/ojdbc-6.0.jar -DgeneratePom=true;
+3. mvn install:install-file -DgroupId=com.danga -DartifactId=java-memcached -Dfile=lib/java-memcached-client-2.6.6.jar -Dversion=2.6.6 -Dpackaging=jar;
+
+
+=================================== generate doc with mvn
+1. mvn site;
+    this command will generate both site documentation and pdfs into the default output site directory(target/site)
+2.
+
+=================================== hook git commit message
+1. install python
+2. cp tools/git-hook-template/* .git/hooks/  
+
+
+=================================== How to build :
+1. compile package and launch tomcat    :   mvn clean compile package tomcat:run -DDEBUG=TRUE;
+2. generate javadoc with UML        :   mvn clean compile javadoc:javadoc;
+
